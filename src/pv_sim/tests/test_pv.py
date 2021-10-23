@@ -45,12 +45,13 @@ def test_handling_message():
     """ Should write result to output """
     output = Mock()
 
+    t = time(12, 0).timestamp()
+
     handle_message(
-        """{"timestamp": 1602486950.0, "value": 0 }""", output)
+        f"{{\"timestamp\": {t}, \"value\": 0 }}", output)
 
     output.assert_called_once_with(
-        Result(timestamp=1602486950.0, measurement_value=0.0,
-               pv_value=1.2544323765509333, sum=1.2544323765509333))
+        Result(timestamp=t, measurement_value=0.0, pv_value=2.9296649047047896, sum=2.9296649047047896))
 
 
 def test_handling_invalid_message():
