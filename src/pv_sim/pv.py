@@ -73,6 +73,7 @@ def generate_power(date: datetime) -> float:
     power = 0 if cos_za < 0 else cos_za * MAGIC_CONSTANT
 
     LOGGER.debug(f"Date: {date} Time of day: {time_of_day} Power: {power}")
+    print(f"Date: {date} Time of day: {time_of_day} Power: {power}")
 
     return power
 
