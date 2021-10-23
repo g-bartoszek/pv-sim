@@ -40,3 +40,11 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+    - name: Generate example output
+      run: |
+        bash example.sh
+    - name: Save example output
+      uses: actions/upload-artifact@v2
+      with:
+        name: example-output
+        path: test_output
